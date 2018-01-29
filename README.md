@@ -12,9 +12,25 @@ npm start
 ```
 npm run eject
 ```
+## 教程环境依赖
+### 客户端
+`cnpm install redux --save`
+`cnpm install react-redux --save`
+`cnpm install redux-thunk --save`//异步任务需要中间件
+`cnpm install react-router-dom --save`
+`npm install antd-mobile --save`//蚂蚁金服ui库
+`npm install babel-plugin-import --save`//按需加载组件代码和样式的 babel 插件
+配置`package.json`
+```
+"plugins": [
+    ["import", { libraryName: "antd-mobile", style: "css" }] // `style: true` 会加载 less 文件
+  ]
+```
+### 服务端
+`npm install express --save`
 ## react基础知识
 ## redux基础知识
-### react 是什么
+### redux 是什么
 1.Redux专注于状态管理，和react解耦
  
 2.单一状态，单向数据流
@@ -180,7 +196,8 @@ render() {
 ```
 ### 使用装饰器优化connect代码
 `npm run eject`弹出个性配置
-```npm i babel-plugin-transform-decorators-legacy```// 支持装饰器插件
+`npm i --save-dev babel-plugin-transform-decorators-legacy`
+// 支持装饰器插件
 改进connect
 ```
 const mapStatetoProps= (state) =>{
@@ -225,3 +242,6 @@ const actionCreaters = {add, jian, addAsync }
     </BrowserRouter>
   </Provider>,
   ```
+  一般组件不能获取history
+  可以通过
+  `import { withRouter } from 'react-router-dom'`
